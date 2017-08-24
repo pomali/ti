@@ -262,7 +262,8 @@ def action_log(period):
 
         log[name]['tmsg'] = ', '.join(tmsg)[::-1].replace(',', '& ', 1)[::-1]
 
-    for name, item in sorted(log.items(), key=(lambda x: x[1]), reverse=True):
+    #print(list(log.items()))
+    for name, item in sorted(log.items(), key=(lambda x: x[1]['delta']), reverse=True):
         print(name.ljust(name_col_len), ' ∙∙ ', item['tmsg'],
               end=' ← working\n' if current == name else '\n')
 
